@@ -24,8 +24,8 @@ public class LinkList {
     }
 
     public void displayList() { //This function traverses the list from first to null, printing each node’s iData.
-        Link current = first; //current link starts travelling from first link
-        while (current != null) {
+        Link current = first;  //create a link called current
+        while (current != null) { //current link starts travelling from first link
             current.displayLink();
             current = current.next;
         }
@@ -34,14 +34,29 @@ public class LinkList {
     
     // Finds and returns the Link node with the given id, or null if not found
     public Link find(int id) {
-        Link current = first; // current link starts travelling from first link until the "id" is found
-        while (current != null) {
+        Link current = first;  //create a link called current
+        while (current != null) { // current link starts travelling from first link until the "id" is found
             if (current.iData == id) {
                 return current;
             }
             current = current.next;
         }
         return null;
+    }
+
+    // Inserts a new Link node with the given id after the node with the given key
+    public void insert(int id, int key) {
+
+        Link current = first;  //create a link called current
+        while (current != null && current.iData != key) { 
+            current = current.next;
+        }
+        if (current != null) { // If the key is found, insert the new link after the current link
+            Link newLink = new Link(id);
+            newLink.next = current.next;
+            current.next = newLink;
+        }
+        // If key not found, do not insert
     }
 }
 
