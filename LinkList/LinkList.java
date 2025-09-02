@@ -58,20 +58,44 @@ public class LinkList {
         }
         // If key not found, do not insert
     }
+
+// Deletes the node with the given id from the list
+    public Link delete(int id) { //return type is Link
+        
+        Link current = first;
+        Link previous = null;
+        while (current != null && current.iData != id) {
+            previous = current;
+            current = current.next;
+        }
+        if (current == null) {
+            return null; // Not found
+        }
+        if (previous == null) {
+            // Deleting the first node
+            first = first.next;
+        } else {
+            previous.next = current.next;
+        }
+        return current;
+    }
+
 }
 
 /*
- * Internal State Transitions of Linked List
+ * Internal State Transitions of Linked List (with insert after key and delete by id)
  *
- * | Operation        | List State (from `first`)        |
- * |------------------|----------------------------------|
- * | After insert 23  | 23                               |
- * | After insert 89  | 89 → 23                          |
- * | After insert 12  | 12 → 89 → 23                     |
- * | After insert 55  | 55 → 12 → 89 → 23                |
- * | After display    | Prints: 55, 12, 89, 23           |
- * | After delete 55  | 12 → 89 → 23                     |
- * | After delete 12  | 89 → 23                          |
- * | After delete 89  | 23                               |
- * | After delete 23  | (empty)                          |
+ * | Operation                | List State (from `first`)        |
+ * |--------------------------|----------------------------------|
+ * | After insertFirst(23)    | 23                               |
+ * | After insertFirst(89)    | 89 → 23                          |
+ * | After insertFirst(12)    | 12 → 89 → 23                     |
+ * | After insertFirst(55)    | 55 → 12 → 89 → 23                |
+ * | After insert(100, 12)    | 55 → 12 → 100 → 89 → 23          |
+ * | After display            | Prints: 55, 12, 100, 89, 23      |
+ * | After delete(100)        | 55 → 12 → 89 → 23                |
+ * | After deleteFirst()      | 12 → 89 → 23                     |
+ * | After delete(89)         | 12 → 23                          |
+ * | After delete(12)         | 23                               |
+ * | After delete(23)         | (empty)                          |
  */
