@@ -24,12 +24,24 @@ public class LinkList {
     }
 
     public void displayList() { //This function traverses the list from first to null, printing each node’s iData.
-        Link current = first;
+        Link current = first; //current link starts travelling from first link
         while (current != null) {
             current.displayLink();
             current = current.next;
         }
         System.out.println(" ");
+    }
+    
+    // Finds and returns the Link node with the given id, or null if not found
+    public Link find(int id) {
+        Link current = first; // current link starts travelling from first link until the "id" is found
+        while (current != null) {
+            if (current.iData == id) {
+                return current;
+            }
+            current = current.next;
+        }
+        return null;
     }
 }
 
