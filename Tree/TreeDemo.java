@@ -2,8 +2,8 @@ package pkg1;
 
 //Node class
 class Node {
- public int iData;       // data item (used as key value)
- public double dData;    // other data
+ public int iData;       // (integer) data item (used as key value)
+ public double dData;    // other (double) data. dData is not required for the tree to function — it’s just a way to show you can store other information besides the key in each node.
  public Node leftChild;  // this node’s left child
  public Node rightChild; // this node’s right child
 
@@ -217,4 +217,18 @@ public class TreeDemo {
      tree.inOrder();
  }
 }
+/*
+Output:
 
+Inorder traversal:
+{ 20, 1.2 } { 30, 1.7 } { 40, 1.4 } { 50, 1.5 } { 60, 1.6 } { 70, 1.9 } { 80, 1.8 } 
+Preorder traversal:
+{ 50, 1.5 } { 30, 1.7 } { 20, 1.2 } { 40, 1.4 } { 70, 1.9 } { 60, 1.6 } { 80, 1.8 } 
+Postorder traversal:
+{ 20, 1.2 } { 40, 1.4 } { 30, 1.7 } { 60, 1.6 } { 80, 1.8 } { 70, 1.9 } { 50, 1.5 } 
+Find 40: true
+Find 100: false
+After deleting 20 (inorder):
+{ 30, 1.7 } { 40, 1.4 } { 50, 1.5 } { 60, 1.6 } { 70, 1.9 } { 80, 1.8 } 
+After deleting 30 (inorder):
+{ 40, 1.4 } { 50, 1.5 } { 60, 1.6 } { 70, 1.9 } { 80, 1.8 } */ 
