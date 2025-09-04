@@ -2,57 +2,52 @@ package pkg1;
 
 //Node class
 class Node {
- public int iData;       // (integer) data item (used as key value)
- public double dData;    // other (double) data. dData is not required for the tree to function — it’s just a way to show you can store other information besides the key in each node.
+ public int iData;       // data item (used as key value)
+ public double dData;    // other data
  public Node leftChild;  // this node’s left child
  public Node rightChild; // this node’s right child
 
  public void displayNode() {
-     System.out.print("{ ");
-     System.out.print(iData);
-     System.out.print(", ");
-     System.out.print(dData);
-     System.out.print(" } ");
+     System.out.println("{ " + iData + ", " + dData + " } ");
  }
 }
 
 //Tree class
-class Tree {
+class Tree { //there is only 1 variable
  private Node root; // first node of tree
 
- public Tree() {
+ public Tree() { //just initializeng with 0 valued root
      root = null;
  }
 
  // Insert method
  public void insert(int id, double dd) {
-     Node newNode = new Node();
-     newNode.iData = id;
-     newNode.dData = dd;
+	    Node newNode = new Node();
+	    newNode.iData = id;
+	    newNode.dData = dd;
 
-     if (root == null) { // no node in root
-         root = newNode;
-     } else {            // root occupied
-         Node current = root;
-         Node parent;
-         while (true) {
-             parent = current;
-             if (id < current.iData) { // go left
-                 current = current.leftChild;
-                 if (current == null) {
-                     parent.leftChild = newNode;
-                     return;
-                 }
-             } else { // go right
-                 current = current.rightChild;
-                 if (current == null) {
-                     parent.rightChild = newNode;
-                     return;
-                 }
-             }
-         }
-     }
- }
+	    if (root == null) { // no node in root
+	        root = newNode;
+	        return;
+	    }
+
+	    Node current = root; // current is used to go through all over the nodes and allocate into it
+	    while (true) {  // be looping until the "return;" is called
+	        if (id < current.iData) { // go left
+	            if (current.leftChild == null) { 
+	                current.leftChild = newNode;
+	                return; // exit from entire insert() function after placing the new node
+	            }
+	            current = current.leftChild;
+	        } else { // go right
+	            if (current.rightChild == null) {
+	                current.rightChild = newNode;
+	                return; // exit from entire insert() function after placing the new node
+	            }
+	            current = current.rightChild;
+	        }
+	    }
+	}
 
  // Find method
  public Node find(int key) {
@@ -217,6 +212,8 @@ public class TreeDemo {
      tree.inOrder();
  }
 }
+
+
 /*
 Output:
 
