@@ -108,3 +108,14 @@ public class CircularQueueMain {
         System.out.println("Front element: " + cq.peek());
     }
 }
+/*
+Output : 
+
+Queue elements: A B C D E 
+Removed: A
+Removed: B
+Queue elements: C D E 
+Queue elements: C D E F G 
+Front element: C
+
+*/ 
