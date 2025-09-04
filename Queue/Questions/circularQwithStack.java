@@ -1,3 +1,7 @@
+//Write a Java program to demonstrate the use of Stack and Circular Queue together.
+//Input - ABCD
+//Output - ABCDDCBA
+
 package labtest1;
 
 import java.util.Scanner;
@@ -101,7 +105,7 @@ public class circularQwithStack {
 			q1.insertq(st1.pop());
 		}
 		for(int i=0;i<8;i++) {
-			System.out.println(q1.reamove());
+			System.out.print(q1.reamove());
 		}
 
 	}
