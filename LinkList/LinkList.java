@@ -65,7 +65,7 @@ public class LinkList {
         Link current = first;
         Link previous = null;
         while (current != null && current.iData != id) {
-            previous = current;
+            previous = current; //#entire node will be assigned to previous#
             current = current.next;
         }
         if (current == null) {
@@ -75,7 +75,7 @@ public class LinkList {
             // Deleting the first node
             first = first.next;
         } else {
-            previous.next = current.next;
+            previous.next = current.next; //eventually the node we want to delete should have been the current. Always 'Previous' is the link which is before the Current
         }
         return current;
     }
