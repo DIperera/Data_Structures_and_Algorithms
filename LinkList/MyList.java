@@ -26,6 +26,15 @@ class MyList {
         System.out.print("DeletedFirst ");
         if (deletedFirst != null) deletedFirst.displayLink();
 
+        // Try to find a value in the list
+        int searchKey = 89;
+        Link found = theList.find(searchKey);
+        if (found != null) {
+            System.out.println("Found node with id: " + found.iData);
+        } else {
+            System.out.println("Node with id " + searchKey + " not found.");
+        }
+
         // After delete(89)
         Link deleted89 = theList.delete(89);
         System.out.print("Deleted ");
