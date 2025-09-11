@@ -83,19 +83,20 @@ public class LinkList {
 }
 
 /*
- * Internal State Transitions of Linked List (with insert after key and delete by id)
+ * Internal State Transitions of Linked List (with insert after key, delete by id, and find)
  *
- * | Operation                | List State (from `first`)        |
- * |--------------------------|----------------------------------|
- * | After insertFirst(23)    | 23                               |
- * | After insertFirst(89)    | 89 → 23                          |
- * | After insertFirst(12)    | 12 → 89 → 23                     |
- * | After insertFirst(55)    | 55 → 12 → 89 → 23                |
- * | After insert(100, 12)    | 55 → 12 → 100 → 89 → 23          |
- * | After display            | Prints: 55, 12, 100, 89, 23      |
- * | After delete(100)        | 55 → 12 → 89 → 23                |
- * | After deleteFirst()      | 12 → 89 → 23                     |
- * | After delete(89)         | 12 → 23                          |
- * | After delete(12)         | 23                               |
- * | After delete(23)         | (empty)                          |
+ * | Operation                | List State (from `first`)        | Output                        |
+ * |--------------------------|----------------------------------|-------------------------------|
+ * | After insertFirst(23)    | 23                               |                               |
+ * | After insertFirst(89)    | 89 → 23                          |                               |
+ * | After insertFirst(12)    | 12 → 89 → 23                     |                               |
+ * | After insertFirst(55)    | 55 → 12 → 89 → 23                |                               |
+ * | After insert(100, 12)    | 55 → 12 → 100 → 89 → 23          |                               |
+ * | After display            | Prints: 55, 12, 100, 89, 23      |                               |
+ * | After delete(100)        | 55 → 12 → 89 → 23                |                               |
+ * | After deleteFirst()      | 12 → 89 → 23                     |                               |
+ * | After find(89)           | 12 → 89 → 23                     | Found node with id: 89        |
+ * | After delete(89)         | 12 → 23                          |                               |
+ * | After delete(12)         | 23                               |                               |
+ * | After delete(23)         | (empty)                          |                               |
  */
